@@ -2,6 +2,7 @@ Rails.application.routes.draw do
  
   namespace :public do
     get 'cart_items/index'
+    
   end
   
   get "/public/home/about" => "homes#about",as: "about"
