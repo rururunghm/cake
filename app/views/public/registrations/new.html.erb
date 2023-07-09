@@ -1,96 +1,108 @@
 <div class="container">
       <p id ="notice"></p>
-      
         <h4 class="text-dark bg-light  w-25">新規会員登録</h4>
         
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<%= form_with model: @customer, url: customer_registration_path do |f| %>
   <%= render "public/shared/error_messages", resource: resource %>
 
+  <div class="field">
+    <div class="row ">
+      <div class="col-sm-12">
+      <%= f.label "名前", class: "col-sm-4 col-form-label" %>
+     
+      
+      <%= f.label "(姓)"  %>
+      <%= f.text_field :first_name, class: 'form-control-sm ' %>
+      
+      
+      <%= f.label "(名)" %>
+      <%= f.text_field :last_name, class: 'form-control-sm ' %>
+      </div>
+    </div>
+  </div>
+      
+      
+  <div class="field">
+    <div class="row">
+      <div class="col-sm-12">
+      <%= f.label "フリガナ", class: "col-sm-4 col-form-label" %>
+      
+      
+      <%= f.label "(セイ)" %>
+      <%= f.text_field :first_name_kana, class: 'form-control-sm ' %>
+      
+      <%= f.label "(メイ)" %>
+      <%= f.text_field :last_name_kana, class: 'form-control-sm ' %>
+      </div>
+    </div>
+  </div>
+  
+  <div class="field">
+    <div class="row">
+      <div class="col">
+      <%= f.label "メールアドレス" , class: "col-sm-4 col-form-label" %>
+      <%= f.text_field :email,autofocus: true, autocomplete: "email", class: 'form-control-sm ' %>
+      </div>
+    </div>
+  </div>
+    
+  <div class="field">
+    <div class="row">
+      <div class="col">
+      <%= f.label "郵便番号", class: "col-sm-4 col-form-label" %>
+      <%= f.text_field :postal_code, class: 'form-control-sm ' %>
+      </div>
+    </div>
+  </div>
+  
+  <div class="field">
+    <div class="row">
+      <div class="col">
+      <%= f.label "住所", class: "col-sm-4 col-form-label" %>
+      <%= f.text_field :address, class: 'form-control-sm ' %>
+      </div>
+    </div>
+  </div>
+     
+  <div class="field">
+    <div class="row">
+      <div class="col">
+      <%= f.label "電話番号", class: "col-sm-4 col-form-label" %>
+      <%= f.text_field :telephone_number, class: 'form-control-sm ' %>
+      </div>
+    </div>
+  </div>
+  
+  <div class="field">
+      <div class="row">
+      <div class="col">
+      <%= f.label "パスワード（6文字以上)", class: "col-sm-4 col-form-label" %>
+      <%= f.text_field :password, class: 'form-control-sm ' %>
+      </div>
+      </div>
+  </div>
+    
+  <div class="field">
+     <div class="row">
+      <div class="col">
+      <%= f.label "パスワード（確認用)", class: "col-sm-4 col-form-label" %>
+      <%= f.text_field :password, class: 'form-control-sm ' %>
+      </div>
+    </div>
+  </div>
+  
 
-  <form>
-    
-    <div class="row">
-      <div class="col">
-        <label for="name" class="col-3 col-form-label">名前</label>
-      </div>
-      <div class="col">
-        <label for="first_name" class="col-form-label">(姓) </label>
-        <input type="text" class="form-control-sm ml-3" placeholder="令和" aria-label="First name">
-      </div>
-      <div class="col">
-        <label for="last_name" class="col-form-label">(名) </label>
-        <input type="text" class="form-control-sm ml-3" placeholder="道子" aria-label="Last name">
-     </div>
-    </div>
-    
-    <div class="row">
-      <div class="col">
-        <label for="name" class="col-sm-5 col-form-label">フリガナ</label>
-      </div>
-      <div class="col">
-        <label for="first_name_kana" class="col-form-label">(セイ)</label>
-        <input type="text" class="form-control-sm" placeholder="令和" aria-label="First name">
-      </div>
-      <div class="col">
-        <label for="last_name_kana" class="col-form-label">(メイ)</label>
-        <input type="text" class="form-control-sm" placeholder="道子" aria-label="Last name">
-     </div>
-    </div>
-    
-    <div class="row">
-      <div class="col">
-      <label for="email" class="col-sm-4 col-form-label">メールアドレス</label>
-      <input type="email" class="form-control-sm "　 id="email"  >
-      </div>
-    </div>
-    
-    <div class="row">
-      <div class="col">
-      <label for="postal_code" class="col-sm-4 col-form-label">郵便番号(ハイフンなし)</label>
-      <input type="text" class="form-control-sm"　 id="postal_code"  >
-      </div>
-    </div>
-    
-    <div class="row">
-      <div class="col">
-      <label for="address" class="col-sm-4 col-form-label">住所</label>
-      <input type="text" class="form-control-sm"　placeholder="東京都渋谷区代々木神園町0-0"　id="postal_code"  >
-      </div>
-    </div>    
-        
-    <div class="row">
-      <div class="col">
-      <label for="telephone_number" class="col-sm-4 col-form-label">電話番号(ハイフンなし)</label>
-      <input type="text" class="form-control-sm"　id="postal_code"  >
-      </div>
-    </div> 
-        
-    <div class="row">
-      <div class="col">
-      <label for="password" class="col-sm-4 col-form-label">パスワード（6文字以上）</label>
-      <input type="password" class="form-control-sm"　id="passwd" >
-      </div>
-    </div>
-    
-    <div class="row">
-      <div class="col">
-      <label for="password" class="col-sm-4 col-form-label">パスワード（確認用）</label>
-      <input type="password" class="form-control-sm"　id="passwd" >
-      </div>
-    </div>
-  </form>
-
-
-  <div class="actions">
+  <div class="actions text-center">
     <%= f.submit "新規登録" %>
   </div>
+  
 <% end %>
+
 
 <h5 class="text-dark bg-light mt-2 w-50 mb-4 px-3">既に登録済みの方</h5>
 
 <%= render "public/shared/links" %>
 
-    
-   
+  
 </div>
