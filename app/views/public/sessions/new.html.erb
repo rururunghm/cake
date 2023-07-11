@@ -1,39 +1,49 @@
 <div class="container">
   
       <p id ="notice"></p>
-       <h4 class="text-dark bg-light  ">ログイン</h4>
+       <div class=" col-sm-2 text-dark bg-light text-center mb-4"><h5>ログイン</h5></div>
       
 
 
-<h5 class="text-dark bg-light w-50 mb-4 px-3">会員の方はこちらからログイン</h5>
+<h5 class="col-sm-5 text-dark bg-light mb-4 px-3">会員の方はこちらからログイン</h5>
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
+<div class="pl-4">
 
-<form>
-    <div class="row mb-3 ">
-      <label for="email" class="col-sm-2 col-form-label">メールアドレス</label>
-      <div class="col-sm-5">
-        <input type="email" class="form-control" id="email"  >
+<div class="field">
+    <div class="row my-3">
+      <div class="col-sm-4">
+        <%= f.label "メールアドレス" , class: "col-form-label" %>
+      </div>
+      <div class="col-sm-6">
+        <%= f.text_field :email, autofocus: true, autocomplete: "email", class: 'form-control ' %>
       </div>
     </div>
+</div>
         
-    <div class="row mb-3">
-      <label for="passwd" class="col-sm-2 col-form-label">パスワード</label>
-      <div class="col-sm-5">
-        <input type="password" class="form-control" id="passwd" >
+<div class="field">
+    <div class="row my-3">
+      <div class="col-sm-4">
+        <%= f.label "パスワード", class: "col-form-label" %>
+      </div>
+      <div class="col-sm-6">
+        <%= f.text_field :password, class: "form-control" %>
       </div>
     </div>
-  </form>
+</div>
+ 
 
-  <div class="actions mb-5 text-center">
-    <%= f.submit "ログイン" %>
+  <div class="actions m-5 text-center">
+    <%= f.submit "ログイン", class: "btn btn-primary" %>
   </div>
 <% end %>
 
+</div>
+
 <h5 class="text-dark bg-light mt-2 w-50 mb-4 px-3">会員登録がお済でない方</h5>
 
-
-<%= render "public/shared/links" %>
-    
+<div class="pl-4">
+<%= render "public/shared/links" %>からログインしてください
+</div>
   
 </div>
