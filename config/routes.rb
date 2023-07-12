@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   
   get "/customers/information/edit" => "public/customers#edit"
   get "/customers/mypage" => "public/customers#show"
+  get "/customers/complete" => "public/customers#complete"
   get "/about" => "public/homes#about"
   root to: "public/homes#top"
   

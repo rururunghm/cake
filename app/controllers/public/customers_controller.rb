@@ -10,7 +10,7 @@ class Public::CustomersController < ApplicationController
   
   def update
     @customer = current_customer
-    redirect_to public_cart_items_index_path
+    redirect_to  customers_mypage_path
   end
   
   def complete
