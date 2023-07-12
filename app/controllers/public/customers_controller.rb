@@ -5,11 +5,12 @@ class Public::CustomersController < ApplicationController
   end 
   
   def edit
-    @customer = Customer.find(params[:id])
+    @customer = current_customer
   end
   
   def update
-    
+    @customer = current_customer
+    redirect_to public_cart_items_index_path
   end
   
   def complete
