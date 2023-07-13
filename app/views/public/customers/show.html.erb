@@ -10,26 +10,32 @@
       <%= link_to "編集する", customers_information_edit_path, class: "btn btn-success" %>
     </div>
   </div>
-    
+  
+   
   
   <div class="row">
     
     <div class="col-6 col-sm-4 bg-light border py-2">氏名</div>
     <div class="col-6 col-sm-6 border py-2"><%= @customer.first_name %>
     <%= @customer.last_name %></div>
+    
     <div class="w-100"></div>
     <div class="col-6 col-sm-4 bg-light border py-2">カナ</div>
     <div class="col-6 col-sm-6 border py-2"><%= @customer.first_name_kana %>
     <%= @customer.last_name_kana %></div>
+    
     <div class="w-100"></div>
     <div class="col-6 col-sm-4 bg-light border py-2">郵便番号</div>
     <div class="col-6 col-sm-6 border py-2"><%= @customer.postal_code %></div>
+    
     <div class="w-100"></div>
     <div class="col-6 col-sm-4 bg-light border py-2">住所</div>
     <div class="col-6 col-sm-6 border py-2"><%= @customer.address %></div>
+    
     <div class="w-100"></div>
     <div class="col-6 col-sm-4 bg-light border py-2">電話番号</div>
     <div class="col-6 col-sm-6 border py-2"><%= @customer.telephone_number %></div>
+    
     <div class="w-100"></div>
     <div class="col-6 col-sm-4 bg-light border py-2">メールアドレス</div>
     <div class="col-6 col-sm-6 border py-2"><%= @customer.email %></div>
@@ -44,7 +50,7 @@
     </div>
   </div>
     
-   <div class="row my-3">
+  <div class="row my-3">
     <div class="row">
       <h4>登録情報</h4>
       <div class="col-sm-1"></div>
