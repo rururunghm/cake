@@ -1,10 +1,16 @@
 Rails.application.routes.draw do
  
   namespace :public do
-    get 'cart_items/index'
+    get 'items/index'
+    get 'items/show'
+  end
+  namespace :public do
+    
+    resources :cart_items,only: [:index,:update, :destroy, :create]
     resources :customers, only: [:edit, :update]
   end
   
+  get "/cart_items" => "public/cart_items#index"
   get "/customers/information/edit" => "public/customers#edit"
   get "/customers/mypage" => "public/customers#show"
   get "/customers/complete" => "public/customers#complete"
