@@ -1,8 +1,9 @@
 # frozen_string_literal: true
 
 class Public::SessionsController < Devise::SessionsController
-  before_action :configure_sign_in_params, only: [:create]
-
+  #before_action :configure_sign_in_params, only: [:create]
+  
+ 
   # GET /resource/sign_in
   # def new
   #   super
@@ -27,6 +28,7 @@ class Public::SessionsController < Devise::SessionsController
     if true && true
       redirect_to  new_customer_registration_path
     end
+  end
   end
   protected
 
