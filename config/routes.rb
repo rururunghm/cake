@@ -1,11 +1,20 @@
 Rails.application.routes.draw do
  
  
+  namespace :admin do
+    get 'homes/top'
+    resources :order_details,only: [:update]
+    resources :orders,only: [:update, :show]
+    resources :customers,only: [:index, :update, :show, :create, :edit]
+    resources :items,only: [:index, :new, :show, :update, :create]
+  end
+ 
   namespace :public do
-    
+    resources :deliveries,only: [:index, :edit, :create, :update, :destroy]
+    resources :orders,only: [:index, :show]
     resources :items,only: [:index, :show]
-    resources :cart_items,only: [:index,:update, :destroy, :create]
-    resources :customers, only: [:edit, :update]
+    resources :cart_items,only: [:index, :update, :destroy, :create]
+    resources :customers, only: [:edit, :update, :show]
   end
   
   get "/items" => "public/items#index"
