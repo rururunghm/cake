@@ -4,7 +4,7 @@
   
 <div class="pl-3">
 
-<%= form_with model: @customer , url: customers_mypage_path do |f| %>
+<%= form_with model: @customer , url: public_customer_path(current_customer) do |f| %>
   
 
   <div class="field">
