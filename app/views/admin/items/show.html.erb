@@ -1,2 +1,23 @@
-<h1>Admin::Item#show</h1>
-<p>Find me in app/views/admin/item/show.html.erb</p>
+<div class="container">
+  <p id ="notice"></p>
+  
+  <div class="col-sm-2 text-dark bg-light text-center mb-4 ml-5"><h4>商品詳細</h4></div>
+  
+   <div class="row">
+    
+    <div class="col-6 col-sm-4 bg-light border py-2">氏名</div>
+    <div class="col-6 col-sm-6 py-2"><%= @item.name %></div>
+    
+    <div class="w-100"></div>
+    <div class="col-6 col-sm-4 bg-light border py-2">郵便番号</div>
+    <div class="col-6 col-sm-6 py-2"><%=  @item.introduction %></div>
+    
+    <div class="w-100"></div>
+    <div class="col-6 col-sm-4 bg-light border py-2">住所</div>
+    <div class="col-6 col-sm-6 py-2"><%=  @item.price %></div>
+  
+  
+  </div>
+    
+  
+</div>
