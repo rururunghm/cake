@@ -1,4 +1,6 @@
 class Item < ApplicationRecord
-  belongs_to :customers
   has_one_attached :image
+  has_many :itemcarts, dependent: :destroy
+  has_many :orderdetails, dependent: :destroy
+  
 end
