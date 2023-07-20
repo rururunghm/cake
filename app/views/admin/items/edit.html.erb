@@ -2,17 +2,42 @@
    <p id ="notice"></p>
    
    <div class="col-sm-2 text-dark bg-light text-center mb-4 ml-5"><h4>商品編集</h4></div>
+   
+   <div class="row">
+    
+    <div class="col-6 col-sm-4 py-2">商品名</div>
+    <div class="col-6 col-sm-6 py-2"><%= @item.name %></div>
+    
+    <div class="w-75"></div>
+    <div class="col-6 col-sm-4 py-2">商品説明</div>
+    <div class="col-6 col-sm-6 py-2"><%= @item.introduction %></div>
+    
+    <div class="w-75"></div>
+    <div class="col-6 col-sm-4 py-2">税込価格(税抜価格)</div>
+    <div class="col-6 col-sm-6 py-2"><%= @item.price*1.10 %>
+    (<%= @item.price %>)円</div>
+  
+    <div class="w-75"></div>
+    <div class="col-6 col-sm-4 py-2">販売ステータス</div>
+    <div class="col-6 col-sm-6 py-2"><%= @item.is_active %>
+  
+   
+  </div>
+  
+    
 
+  </div>
+  
 
     <div class="form-check">
-      <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+      <input class="form-check-input" type="radio">
       <label class="form-check-label" for="flexRadioDefault1">
           Default radio
       </label>
     </div>
 
     <div class="form-check">
-      <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+      <input class="form-check-input" type="radio" checked>
       <label class="form-check-label" for="flexRadioDefault2">
           Default checked radio
       </label>
