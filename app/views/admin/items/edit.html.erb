@@ -1,25 +1,31 @@
+<li class="nav-item">
+<%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: 'nav-link' %>
+</li>
 <div class="container">
    <p id ="notice"></p>
    
    <div class="col-sm-2 text-dark bg-light text-center mb-4 ml-5"><h4>商品編集</h4></div>
-   
+   <%= form_with model: @item, url: "/admin/items", method: :post do |f| %>
    <div class="row">
     
+    
+    <div class="col-6 col-sm-4 py-2">商品画像</div>
+    <div class="col-6 col-sm-6 py-2"><%= f.file_field :image, accept: "image/*" %></div>
+    
     <div class="col-6 col-sm-4 py-2">商品名</div>
-    <div class="col-6 col-sm-6 py-2"><%= @item.name %></div>
+    <div class="col-6 col-sm-6 py-2"> <%= f.text_field :name, class: 'form-control-sm '%></div>
     
     <div class="w-75"></div>
     <div class="col-6 col-sm-4 py-2">商品説明</div>
-    <div class="col-6 col-sm-6 py-2"><%= @item.introduction %></div>
+    <div class="col-6 col-sm-6 py-2"><%= f.text_area :introduction, class: 'form-control-sm ' %></div>
     
     <div class="w-75"></div>
-    <div class="col-6 col-sm-4 py-2">税込価格(税抜価格)</div>
-    <div class="col-6 col-sm-6 py-2"><%= @item.price*1.10 %>
-    (<%= @item.price %>)円</div>
+    <div class="col-6 col-sm-4 py-2">税抜価格</div>
+    <div class="col-6 col-sm-6 py-2"> <%= f.text_area :price,class: 'form-control-sm ' %>円</div>
   
     <div class="w-75"></div>
     <div class="col-6 col-sm-4 py-2">販売ステータス</div>
-    <div class="col-6 col-sm-6 py-2"><%= @item.is_active %>
+    <div class="col-6 col-sm-6 py-2"></div>
   
    
   </div>
@@ -43,5 +49,10 @@
       </label>
     </div>
     
-    
+    <div class="actions text-center">
+      <%= f.submit "変更を保存", class:"btn btn-success" %>
+    </div>
+   <% end %>
+   
+  
 </div>
