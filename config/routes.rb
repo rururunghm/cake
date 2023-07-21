@@ -19,10 +19,12 @@ Rails.application.routes.draw do
   
   get "/items" => "public/items#index"
   get "/cart_items" => "public/cart_items#index"
-  get "/customers/information/edit" => "public/customers#edit"
+  get "customers/:id/edit" => "public/customers#edit", as: "customers/information/edit"
+  
   get "/customers/mypage" => "public/customers#show"
   get "/customers/complete" => "public/customers#complete"
   get "/about" => "public/homes#about"
+  get 'admin/items/:id/edit' => 'admin/items#edit', as: 'admin_edit_item'
   root to: "public/homes#top"
   
   devise_for :customers,skip: [:passwords], controllers: {
