@@ -1,11 +1,11 @@
-<li class="nav-item">
-<%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: 'nav-link' %>
-</li>
 <div class="container">
    <p id ="notice"></p>
    
-   <div class="col-sm-2 text-dark bg-light text-center mb-4 ml-5"><h4>商品編集</h4></div>
-  <%= form_with model: @items do |f| %>
+   <div class="col-sm-2 text-dark bg-light text-center mb-4 ml-5">
+     <h4>商品編集</h4>
+   </div>
+   
+  <%= form_with model: @item, url: admin_item_path do |f| %>
    <div class="row">
     
     
@@ -25,34 +25,21 @@
   
     <div class="w-75"></div>
     <div class="col-6 col-sm-4 py-2">販売ステータス</div>
-    <div class="col-6 col-sm-6 py-2"></div>
-  
-   
-  </div>
-  
     
-
-  </div>
-  
-
     <div class="form-check">
-      <input class="form-check-input" type="radio">
-      <label class="form-check-label" for="flexRadioDefault1">
-          Default radio
-      </label>
+      <%= f.radio_button :is_active, true, class: "form-check-input" %>
+      <%= f.label :is_active, "販売中", value: true, class: "form-check-label" %>
     </div>
 
     <div class="form-check">
-      <input class="form-check-input" type="radio" checked>
-      <label class="form-check-label" for="flexRadioDefault2">
-          Default checked radio
-      </label>
+      <%= f.radio_button :is_active, false, class: "form-check-input" %>
+      <%= f.label :is_active, "販売停止中", value: false, class: "form-check-label" %>
     </div>
     
-    <div class="actions text-center">
+    
+    <div class="actions text-center col-6 col-sm-4 py-2">
       <%= f.submit "変更を保存", class:"btn btn-success" %>
     </div>
   <% end %>
    
-  
 </div>
