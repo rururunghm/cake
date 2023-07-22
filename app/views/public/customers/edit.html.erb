@@ -2,7 +2,7 @@
 <div class="container">
   <p id ="notice"></p>
   <h4 class="text-dark bg-light w-25 text-center mb-y">登録情報編集</h4>
-  <%= form_with model: @customer do |f| %>
+  <%= form_with model: @customer, url: public_customer_path(current_customer) do |f| %>
 <div class="pl-3">
   
 
@@ -91,7 +91,7 @@
   
   <div class="actions text-center">
       <%= f.submit "編集内容を保存", class:"btn btn-success" %>
-      <%= link_to "退会する", new_customer_registration_path, class:"btn btn-danger ml-3" %>
+      <%= link_to "退会する", customers_complete_path, class:"btn btn-danger ml-3" %>
   </div>
 
 <% end %>

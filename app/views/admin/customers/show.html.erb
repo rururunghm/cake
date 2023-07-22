@@ -44,14 +44,14 @@
   <div class="row my-3">
     <div class="row">
       <div class="col-sm-1"></div>
-      <%= link_to "編集する", customers_information_edit_path, class: "btn btn-success" %>
+      <%= link_to "編集する", edit_admin_customer_path(params[:id]), class: "btn btn-success" %>
     </div>
   </div>
     
   <div class="row my-3">
     <div class="row">
       <div class="col-sm-1"></div>
-      <%= link_to "一覧を見る", customers_information_edit_path, class: "btn btn-primary" %>
+      <%= link_to "注文履歴一覧を見る", admin_items_path, class: "btn btn-primary" %>
     </div>
   </div>
     
