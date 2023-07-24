@@ -16,6 +16,10 @@ class Public::CustomersController < ApplicationController
   end
   
   def complete
+    @customer = current_customer
+    @customer.update(is_delete: true)
+    reset_session
+    redirect_to new_customer_registration_path
   end
   
   def secession

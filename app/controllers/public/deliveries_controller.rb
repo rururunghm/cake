@@ -5,7 +5,9 @@ class Public::DeliveriesController < ApplicationController
   end
   
   def create
-    
+    @deliveries = Deliveries.new(deliveries_params)
+    @deliveries.save
+    redirect_to public_orders_path
   end
   
   def edit
