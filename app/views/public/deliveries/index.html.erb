@@ -5,10 +5,10 @@
   
   <div class="row">
   
-    <%= form_with model: @derivries do |f| %>
+    <%= form_with model: @derivery, url: public_deliveries_path do |f| %>
     
       <h4 class="col-6 col-sm-4 py-2">郵便番号</h4>
-      <div class="col-6 col-sm-6 py-2"><%= f.file_field :gip_code %></div>
+      <div class="col-6 col-sm-6 py-2"><%= f.text_field :gip_code %></div>
         
       <h4 class="col-6 col-sm-4 py-2">住所</h4>
       <div class="col-6 col-sm-6 py-2"><%= f.text_field :address %></div>
@@ -21,5 +21,32 @@
         
     <% end %>
   </div>
+  
+  
+    
+    <table class="table table-hover table-inverse ">
+          <thead class="bg-light border">
+          <tr>
+          <th>郵便番号</th>
+          <th>住所</th>
+          <th>宛名</th>
+          <th colspan="5"></th>
+          </tr>
+          </thead>
+          
+          <tbody>
+            <% @deliveries.each do |deliveries| %>
+            <tr>
+              <td><%= deliveries.gip_cod %></td>
+              <td><%= deliveries.address %></td>
+              <td><%= deliveries.address_name %></td>
+              <td></td>
+            </tr>
+            
+            <% end %>
+          </tbody>
+        </table>
+    
+ 
   
 </div>

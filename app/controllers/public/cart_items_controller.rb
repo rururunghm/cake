@@ -3,6 +3,7 @@ class Public::CartItemsController < ApplicationController
   def index
     @cart_item = CartItem.new
     @cart_items = CartItem.all
+    @c_item = Item
   end
   
   def create
@@ -20,7 +21,7 @@ class Public::CartItemsController < ApplicationController
    private
 
   def cart_items_params
-    params.require(:cart_items).permit(:amount)
+    params.require(:cart_items).permit(:item_id, :amount)
   end
   
 end

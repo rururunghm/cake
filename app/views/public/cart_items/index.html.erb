@@ -1,9 +1,10 @@
 <div class="container">
+  <p id ="notice"></p>
   
-    <div class="col-sm-2 text-dark bg-light text-center mb-4 ml-5"><h4>ショッピングカート</h4></div>
+    <div class=" w-25 text-dark bg-light text-center mb-4 ml-5"><h4>ショッピングカート</h4></div>
     
     <table class="table">
-      <thead>
+      <thead class="bg-light border">
         <tr>
           <th scope="col">商品名</th>
           <th scope="col">単価(税込)</th>
@@ -17,9 +18,8 @@
         <% @cart_items.each do |cart_item| %>
           <tr>
             <td></td>
-            <td>
-              
-            </td>
+            <td></td>
+            <td><%= f.select :amount, [['1',1], ['2',2], ['3',3]] %></td>
             <td></td>
             <td></td>
           </tr>

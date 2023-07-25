@@ -5,8 +5,8 @@ class Public::DeliveriesController < ApplicationController
   end
   
   def create
-    @deliveries = Deliveries.new(deliveries_params)
-    @deliveries.save
+    @delivery = Delivery.new(delivery_params)
+    @delivery.save
     redirect_to public_orders_path
   end
   
@@ -23,8 +23,8 @@ class Public::DeliveriesController < ApplicationController
   
    private
 
-  def deriveries_params
-    params.require(:deliveies).permit(:gip_code, :address, :address_name)
+  def derivery_params
+    params.require(:delivery).permit(:gip_code, :address, :address_name)
   end
   
 end
