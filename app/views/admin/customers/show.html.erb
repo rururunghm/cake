@@ -36,7 +36,7 @@
   
     <div class="w-100"></div>
     <div class="col-6 col-sm-4 bg-light border py-2">会員ステータス</div>
-    <div class="col-6 col-sm-6 border py-2"><%= @customer.is_delete %></div>
+    <div class="col-6 col-sm-6 border py-2"><%= @customer.is_deleted %></div>
   
   
   </div>
@@ -51,7 +51,7 @@
   <div class="row my-3">
     <div class="row">
       <div class="col-sm-1"></div>
-      <%= link_to "注文履歴一覧を見る", admin_items_path, class: "btn btn-primary" %>
+      <%= link_to "注文履歴一覧を見る", admin_order_path(params[:id]), class: "btn btn-primary" %>
     </div>
   </div>
     

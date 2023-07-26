@@ -4,8 +4,5 @@ class Item < ApplicationRecord
   has_many :orderdetails, dependent: :destroy
   has_one_attached :image
   
-  def image(width, height)
-    image.variant(resize_to_limit: [width, height]).processed
-  end
   
 end

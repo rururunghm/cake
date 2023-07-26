@@ -7,13 +7,13 @@
     <h4>お届け先</h4>
     
     <div class="form-check">
-      <%= f.radio_button :is_active, true, class: "form-check-input" %>
-      <%= f.label :is_active, "販売中", value: true, class: "form-check-label" %>
+      <%= f.radio_button :order_status, true, class: "form-check-input" %>
+      <%= f.label :order_status, "販売中", value: true, class: "form-check-label" %>
     </div>
 
     <div class="form-check">
-      <%= f.radio_button :is_active, false, class: "form-check-input" %>
-      <%= f.label :is_active, "販売停止中", value: false, class: "form-check-label" %>
+      <%= f.radio_button :order_status, false, class: "form-check-input" %>
+      <%= f.label :order_status, "販売停止中", value: false, class: "form-check-label" %>
     </div>
     
 </div>
