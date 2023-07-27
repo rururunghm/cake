@@ -23,7 +23,7 @@ class Public::DeliveriesController < ApplicationController
   
    private
 
-  def derivery_params
+  def delivery_params
     params.require(:delivery).permit(:gip_code, :address, :address_name)
   end
   

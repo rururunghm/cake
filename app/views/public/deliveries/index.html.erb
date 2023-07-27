@@ -5,7 +5,7 @@
   
   <div class="row">
   
-    <%= form_with model: @derivery, url: public_deliveries_path do |f| %>
+    <%= form_with model: @delivery, url: public_deliveries_path do |f| %>
     
       <h4 class="col-6 col-sm-4 py-2">郵便番号</h4>
       <div class="col-6 col-sm-6 py-2"><%= f.text_field :gip_code %></div>
@@ -37,7 +37,7 @@
           <tbody>
             <% @deliveries.each do |deliveries| %>
             <tr>
-              <td><%= deliveries.gip_cod %></td>
+              <td><%= deliveries.gip_code %></td>
               <td><%= deliveries.address %></td>
               <td><%= deliveries.address_name %></td>
               <td></td>
