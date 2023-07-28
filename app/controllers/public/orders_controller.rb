@@ -2,6 +2,7 @@ class Public::OrdersController < ApplicationController
   
   def index
     @orders = Order.all
+    @cus =  current_customer
   end
   
   def new
