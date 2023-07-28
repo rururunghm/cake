@@ -11,19 +11,22 @@ Rails.application.routes.draw do
  
   namespace :public do
     resources :deliveries,only: [:index, :edit, :create, :update, :destroy]
-    resources :orders,only: [:index, :show]
+    resources :orders,only: [:index, :show, :new, :create]
+     
     resources :items,only: [:index, :show]
     resources :cart_items,only: [:index, :update, :destroy, :create]
     resources :customers, only: [:edit, :update, :show]
+    
   end
   
   get "/items" => "public/items#index"
   get "/cart_items" => "public/cart_items#index"
   get "/customers/information/edit" => "public/customers#edit"
-  
   get "/customers/mypage" => "public/customers#show"
   get "/customers/complete" => "public/customers#complete"
   get "/about" => "public/homes#about"
+  
+  
   get 'admin/items/:id/edit' => 'admin/items#edit'
   root to: "public/homes#top"
   
