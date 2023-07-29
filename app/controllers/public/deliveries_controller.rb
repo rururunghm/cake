@@ -7,11 +7,11 @@ class Public::DeliveriesController < ApplicationController
   def create
     @delivery = Delivery.new(delivery_params)
     @delivery.save
-    redirect_to public_orders_path
+    redirect_to deliveries_path
   end
   
   def edit
-    
+    @delivery = Delivery.find(params[:id])
   end
   
   def update

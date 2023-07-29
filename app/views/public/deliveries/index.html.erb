@@ -5,16 +5,16 @@
   
   <div class="row">
   
-    <%= form_with model: @delivery, url: public_deliveries_path do |f| %>
+    <%= form_with model: @delivery, url: deliveries_path, method: :post do |f| %>
     
       <h4 class="col-6 col-sm-4 py-2">郵便番号</h4>
       <div class="col-6 col-sm-6 py-2"><%= f.text_field :gip_code %></div>
         
       <h4 class="col-6 col-sm-4 py-2">住所</h4>
-      <div class="col-6 col-sm-6 py-2"><%= f.text_field :address %></div>
+      <div class="col-6 col-sm-6 py-2"><%= f.text_area :address %></div>
         
       <h4 class="col-6 col-sm-4 py-2">宛名</h4>
-      <div class="col-6 col-sm-6 py-2"><%= f.text_area :address_name %>
+      <div class="col-6 col-sm-6 py-2"><%= f.text_field :address_name %>
       
       
       <%= f.submit "新規登録", class: "btn btn-success" %></div>
@@ -25,6 +25,7 @@
   
     
     <table class="table table-hover table-inverse ">
+      
           <thead class="bg-light border">
           <tr>
           <th>郵便番号</th>
@@ -35,7 +36,7 @@
           </thead>
           
           <tbody>
-            <% @deliveries.each do |deliveries| %>
+          <% @deliveries.each do |deliveries| %>
             <tr>
               <td><%= deliveries.gip_code %></td>
               <td><%= deliveries.address %></td>
@@ -43,7 +44,7 @@
               <td></td>
             </tr>
             
-            <% end %>
+          <% end %>
           </tbody>
         </table>
     
