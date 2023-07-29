@@ -17,12 +17,12 @@ class Public::CustomersController < ApplicationController
   
   def complete
     @customer = current_customer
-    @customer.update(is_delete: true)
-    reset_session
-    redirect_to new_customer_registration_path
   end
   
   def secession
+    @customer.update(is_deleted: true)
+    reset_session
+    redirect_to new_customer_registration_path
   end
   
    private

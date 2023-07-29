@@ -2,7 +2,7 @@
   <p id ="notice"></p>
     <h4 class="text-dark bg-light w-25 text-center mb-y">注文情報入力</h4>
     
-    <%= form_with model: @orders, url: orders_path do |f| %>
+    <%= form_with model: @orders, url: '/orders/confirm' do |f| %>
     
     <h4>支払方法</h4>
       <div class="col">
@@ -14,6 +14,8 @@
         <%= f.radio_button :payment_method, Order.payment_methods.key(1) %>
         <%= f.label :payment_method_transfer, Order.payment_methods_i18n[:transfer]%>
       </div>  
+      
+      
         
     <h4>お届け先</h4>
     
@@ -54,16 +56,11 @@
             </div>
             
             <div class="actions text-center">
-              <%= link_to 
+              <%= f.submit "確認画面に進む", class: "btn btn-primary" %>
             </div>
             
           <% end %>
         </div>
       </div>  
-       
-        
-        
-      
-        
     <% end %>
 </div>

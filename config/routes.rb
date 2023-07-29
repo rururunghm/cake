@@ -31,13 +31,17 @@ Rails.application.routes.draw do
     end  
     resources :items,only: [:index, :show]
     resources :cart_items,only: [:index, :update, :destroy, :create]
-    resources :customers, only: [:edit, :update, :show]
+    resources :customers, only: [:edit, :update, :show] do
+      collection do
+        patch :secession
+        get :complete
+      end 
+    end
     
     get "/items" => "public/items#index"
     get "/cart_items" => "public/cart_items#index"
     get "/customers/information/edit" => "public/customers#edit"
     get "/customers/mypage" => "public/customers#show"
-    get "/customers/complete" => "public/customers#complete"
     get "/about" => "public/homes#about"
   
   end

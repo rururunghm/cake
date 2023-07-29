@@ -19,6 +19,9 @@ class Public::OrdersController < ApplicationController
   end
   
   def create
+    @order = Order.new(order_params)
+    @order.save
+    redirect_to  confirm_orders_path
   end
   
   def show
@@ -26,8 +29,8 @@ class Public::OrdersController < ApplicationController
   
    private
 
-  def orders_params
-    params.require(:orders).permit(:address, :gip_code, :address_name, :payment_methods, :invoice_amount, :postage, :order_status)
+  def order_params
+    params.require(:order).permit(:address, :gip_code, :address_name, :payment_methods, :invoice_amount, :postage, :order_status)
   end
   
 end
