@@ -30,7 +30,10 @@ Rails.application.routes.draw do
       end 
     end  
     resources :items,only: [:index, :show]
-    resources :cart_items,only: [:index, :update, :destroy, :create]
+    resources :cart_items,only: [:index, :update, :destroy, :create] do
+      collection do
+        delete :destroy_all 
+      end
     resources :customers, only: [:edit, :update, :show] do
       collection do
         patch :secession
