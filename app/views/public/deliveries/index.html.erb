@@ -41,7 +41,11 @@
               <td><%= deliveries.gip_code %></td>
               <td><%= deliveries.address %></td>
               <td><%= deliveries.address_name %></td>
-              <td></td>
+          
+              <td>
+                <%= link_to "編集する", edit_delivery_path(deliveries.id),class: "btn btn-sm btn-success" %>
+                <%= link_to "削除する", deliveries_path(deliveries.id), method: :delete, class: "btn btn-sm btn-danger" %>
+              </td>
             </tr>
             
           <% end %>

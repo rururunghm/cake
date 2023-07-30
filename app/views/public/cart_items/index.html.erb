@@ -15,7 +15,7 @@
       </thead>
     
       <tbody>
-         <% if current_member.cart_items.present? %>
+         <% if current_customer.cart_items.exists? %>
           <% @cart_items.each do |cart_item| %> 
           <tr>
             <td><%= image_tag(cart_item.item, :image, size: "60x50", fallback: "no_image.jpg") %>

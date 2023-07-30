@@ -6,8 +6,12 @@ class Public::DeliveriesController < ApplicationController
   
   def create
     @delivery = Delivery.new(delivery_params)
-    @delivery.save
+    @delivery.customer_id = current_customer.id
+    if @delivery.save
     redirect_to deliveries_path
+    else
+    redirect_to root_path 
+    end
   end
   
   def edit
@@ -15,10 +19,15 @@ class Public::DeliveriesController < ApplicationController
   end
   
   def update
-    
+    @delivery = Delivery.find(params[:id])
+    @delivery.update(delivery_params)
+    redirect_to  deliveries_path
   end
   
   def destroy
+    deliveries = Delivery.find(params[:id])
+    deliveries.destroy  
+    redirect_to '/deliveriess' 
   end
   
    private
