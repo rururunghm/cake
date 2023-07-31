@@ -3,7 +3,6 @@ class Public::OrdersController < ApplicationController
   def index
     @orders = Order.all
     @cus =  current_customer
-    
   end
   
   def new
@@ -13,19 +12,33 @@ class Public::OrdersController < ApplicationController
   end
   
   def confirm
-    @item = Item.all
-    @order = Order.new(order_params)
-    @delivery = Delivery.find(params[:order][:delivery_id])
-    @order.gip_code = @delivery.gip_code
-    @order.address = @delivery.address
-    @order.address_name = @delivery.address_name
+    @order = Order.new
+    if order_params[:delivery_method] == '0'
+      @order.gip_code = current_customer.postal_code
+      @order.address = current_customer.address
+      @order.address_name = current_customer.first_name + current_customer.last_name
+    elsif order_params[:delivery_method] == '1'
+      delivery = Delivery.find(order_params[:select_address])
+      @order.gip_code = delivery.gip_code
+      @order.address = delivery.address
+      @order.address_name = delivery.address_name
+    else
+      @order.gip_code = order_params[:gip_code]
+      @order.address = order_params[:address]
+      @order.address_name = order_params[:address_name]
+    end
+      @order.payment_methods = order_params[:payment_methods]
   end
   
   def complete
   end
   
   def create
+    
     @order = Order.new(order_params)
+    @order = current_customer
+    @order.customer_id = current_customer.id
+    
     @order.save
     redirect_to  confirm_orders_path
   end
@@ -36,7 +49,7 @@ class Public::OrdersController < ApplicationController
    private
 
   def order_params
-    params.require(:order).permit(:address, :gip_code, :address_name, :payment_methods, :invoice_amount, :postage, :order_status)
+    params.require(:order).permit(:address, :gip_code, :address_name, :payment_methods, :invoice_amount, :postage, :select_address,  :order_status,:delivery_method)
   end
   
 end
