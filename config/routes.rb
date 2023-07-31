@@ -9,12 +9,11 @@ Rails.application.routes.draw do
     sessions: "admin/sessions"
   }
 
-  get 'admin/items/:id/edit' => 'admin/items#edit'
   root to: "public/homes#top"
   
  
   namespace :admin do
-    get 'homes/top'
+     
     resources :order_details,only: [:update]
     resources :orders,only: [:update, :show]
     resources :customers,only: [:index, :update, :show, :create, :edit]
@@ -42,8 +41,7 @@ Rails.application.routes.draw do
       end 
     end
     
-    get "/items" => "public/items#index"
-    get "/cart_items" => "public/cart_items#index"
+    
     get "/customers/information/edit" => "public/customers#edit"
     get "/customers/mypage" => "public/customers#show"
     get "/about" => "public/homes#about"

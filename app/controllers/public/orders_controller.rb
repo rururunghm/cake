@@ -28,6 +28,7 @@ class Public::OrdersController < ApplicationController
       @order.address_name = order_params[:address_name]
     end
       @order.payment_methods = order_params[:payment_methods]
+      
   end
   
   def complete
