@@ -13,12 +13,14 @@
         </tr>
       </thead>
     
+    <% @orders.each do |order| %> 
+    
       <tbody>
         
           <tr>
             <td></td>
             <td></td>
-            <td><%= f.select :amount, [['1',1], ['2',2], ['3',3]] %></td>
+            <td></td>
             <td></td>
             <td></td>
           </tr>
@@ -27,5 +29,10 @@
       
     </table>
 
-    
+
+    <h3>支払方法</h3>
+
+    <h3>お届け先</h3>
+
+    <% end %>
 </div>

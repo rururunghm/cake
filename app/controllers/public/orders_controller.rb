@@ -13,6 +13,11 @@ class Public::OrdersController < ApplicationController
   end
   
   def confirm
+    @order = Order.new(order_params)
+    @delivery = Delivery.find(params[:order][:delivery_id])
+    @order.postal_code = @delivery.postal_code
+    @order.address = @delivery.address
+    @order.name = @delivery.name
   end
   
   def complete
