@@ -18,19 +18,24 @@
       <tbody>
         
           <tr>
+            <td><%= @item.name %></td>
             <td></td>
             <td></td>
-            <td></td>
-            <td></td>
+            <td><%= @order.invoice_amount %></td>
             <td></td>
           </tr>
-       
+        <%= form_with model:[@item, @order], url:(orders_path) do |f| %>
+          <%= f.hidden_field :amount %>
+          <%= f.hidden_field :quantity %>
+          <%= f.submit %>
+        <% end %>
       </tbody>
       
     </table>
 
 
     <h5>支払方法</h5>
+    
 
     <h5>お届け先</h5>
 

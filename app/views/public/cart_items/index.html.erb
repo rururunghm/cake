@@ -19,8 +19,8 @@
          <% if current_customer.cart_items.present? %>
           <% @cart_items.each do |cart_item| %> 
           <tr>
-            <td><%= attachment_image_tag(cart_item.item, :image, size: "60x50", fallback: "no_image.jpg") %> #商品画像
-                <%= cart_item.item.name %> ></td>
+            <td><%= image_tag(cart_item.item.image, size: "60x50", fallback: "no_image.jpg") %> 
+                <%= cart_item.item.name %></td>
                 
             <td><%= cart_item.item.with_tax_price%></td>
             
@@ -30,12 +30,12 @@
                 <% end %></td>
                 
             <td><%= cart_item.subtotal%></td>
-                <% @合計金額 +=  cart_item.subtotal %></td>
+                
             
             <td><%= link_to "商品をカートから削除する", cart_item_path(cart_item.id, cart_item), method: :delete,class: "btn btn-danger" %>
             </td>
           </tr>
-          <% total += subtotal %>
+          <% total += cart_item.subtotal %>
          <% end %>
         <% end %>
         

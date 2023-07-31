@@ -13,6 +13,7 @@ class Public::OrdersController < ApplicationController
   end
   
   def confirm
+    @item = Item.all
     @order = Order.new(order_params)
     @delivery = Delivery.find(params[:order][:delivery_id])
     @order.gip_code = @delivery.gip_code
