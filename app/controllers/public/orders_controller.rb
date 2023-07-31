@@ -15,9 +15,9 @@ class Public::OrdersController < ApplicationController
   def confirm
     @order = Order.new(order_params)
     @delivery = Delivery.find(params[:order][:delivery_id])
-    @order.postal_code = @delivery.postal_code
+    @order.gip_code = @delivery.gip_code
     @order.address = @delivery.address
-    @order.name = @delivery.name
+    @order.address_name = @delivery.address_name
   end
   
   def complete
