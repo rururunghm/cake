@@ -40,7 +40,9 @@ class Public::OrdersController < ApplicationController
   end
   
   def create
-       @order = Order.new
+       @order = Order.new(order_params)
+       @order.customer_id = current_customer.id
+       @order.save
     if order_params[:delivery_method] == '0'
       @order.gip_code = current_customer.postal_code
       @order.address = current_customer.address
@@ -61,6 +63,7 @@ class Public::OrdersController < ApplicationController
         @cart_items.each do |cart_item| 
           @total = ((cart_item.item.price * 1.1).floor) * cart_item.amount + @total
         end
+      redirect_to complete_orders_path 
   end
   
   def show
@@ -69,7 +72,7 @@ class Public::OrdersController < ApplicationController
    private
 
   def order_params
-    params.require(:order).permit(:address, :gip_code, :address_name, :payment_methods, :invoice_amount, :postage, :select_address,  :order_status, :delivery_method)
+    params.require(:order).permit(:address, :gip_code, :address_name, :payment_methods, :invoice_amount, :postage, :select_address, :delivery_method)
   end
   
 end

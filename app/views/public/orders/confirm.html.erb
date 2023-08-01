@@ -57,6 +57,12 @@
       
      <%= form_with(model: @order, url: orders_path, method: :post, local: true)do |f| %>
           <%= f.hidden_field :gip_code, :value => @order.gip_code %>
-          <%= f.submit "注文を確定する" %>
+          <%= f.hidden_field :address, :value => @order.address %>
+          <%= f.hidden_field :address_name, :value => @order.address_name %>
+          <%= f.hidden_field :payment_methods, :value => @order.payment_methods %>
+          <%= f.hidden_field :postage, value: 800 %>
+          <%= f.hidden_field :invoice_amount, :value => @total %>
+          
+          <%= f.submit "注文を確定する", class: "btn btn-success" %>
       <% end %>
 </div>
