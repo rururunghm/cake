@@ -28,7 +28,7 @@ class Public::OrdersController < ApplicationController
       @order.address_name = order_params[:address_name]
     end
       @order.payment_methods = order_params[:payment_methods]
-      
+      @cart_items = current_customer.cart_items
   end
   
   def complete
@@ -50,7 +50,7 @@ class Public::OrdersController < ApplicationController
    private
 
   def order_params
-    params.require(:order).permit(:address, :gip_code, :address_name, :payment_methods, :invoice_amount, :postage, :select_address,  :order_status,:delivery_method)
+    params.require(:order).permit(:address, :gip_code, :address_name, :payment_methods, :invoice_amount, :postage, :select_address,  :order_status, :delivery_method)
   end
   
 end
