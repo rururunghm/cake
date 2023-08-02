@@ -3,10 +3,14 @@
     
 <div class="container">
   <p id ="notice"></p>
-    <h4 class="text-dark bg-light w-25 text-center mb-y">商品一覧</h4>
-    
-    
-    <table class="table">
+  
+  <div class="row">
+    <div class="text-dark bg-light w-25 text-center mb-y col-sm-2"><h4>商品一覧</h4></div>
+    <div class="col-sm-8"></div>
+    <div class="col-sm-2"><%= link_to "+",  new_admin_item_path %></div>
+  </div>
+  
+    <table class="table mt-4">
       <thead>
         <tr>
           <th scope="col">商品ID</th>
