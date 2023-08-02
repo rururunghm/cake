@@ -17,18 +17,18 @@
               </thead>
     
           <tbody>
-            
+            <% @order_detail.each do |order_detail| %> 
                 <tr>
-                  <td></td>
-                  <td><%= @cus.postal_code %></br>
-                      <%= @cus.address %></br>
-                      <%= @cus.first_name %><%= @cus.last_name %></td>
+                  <td><%= %></td>
+                  <td><%= order_detail.postal_code %></br>
+                      <%= order_detail.address %></br>
+                      <%= order_detail.first_name %><%= order_detail.last_name %></td>
                   <td></td>
                   <td></td>
                   <td></td>
                   <td></td>
                 </tr>
-            
+            <% end %>
           </tbody> 
   
         </div>

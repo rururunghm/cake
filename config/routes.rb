@@ -9,11 +9,11 @@ Rails.application.routes.draw do
     sessions: "admin/sessions"
   }
 
-  root to: "public/homes#top"
+
   
  
   namespace :admin do
-     
+    root to: "homes#top"
     resources :order_details,only: [:update]
     resources :orders,only: [:update, :show]
     resources :customers,only: [:index, :update, :show, :create, :edit]
@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   end
  
   scope module: :public do
+    root to: "homes#top"
     resources :deliveries,only: [:index, :edit, :create, :update, :destroy]
     resources :orders,only: [:index, :show, :new, :create] do
       collection do
