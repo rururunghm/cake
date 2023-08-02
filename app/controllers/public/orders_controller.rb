@@ -2,11 +2,10 @@ class Public::OrdersController < ApplicationController
   
   def index
     @orders = current_customer.orders
-    @cus =  current_customer
+    @orders = Order.all
   end
   
   def new
-    @orders = Order.all
     @cus =  current_customer
     @order = Order.new
   end
@@ -56,7 +55,7 @@ class Public::OrdersController < ApplicationController
   end
   
   def show
-    @order = current_cus tomer.orders.find(params[:id])
+   @order = current_customer.orders.find(params[:id])
   end
   
    private

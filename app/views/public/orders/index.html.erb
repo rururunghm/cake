@@ -17,16 +17,16 @@
               </thead>
     
           <tbody>
-            <% @order_detail.each do |order_detail| %> 
+            <% @orders.each do |orders| %> 
                 <tr>
-                  <td><%= %></td>
-                  <td><%= order_detail.postal_code %></br>
-                      <%= order_detail.address %></br>
-                      <%= order_detail.first_name %><%= order_detail.last_name %></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
+                  <td><%= orders.created_at%></td>
+                  <td><%= orders.gip_code %></br>
+                      <%= orders.address %></br>
+                      <%= orders.address_name %></td>
+                  <td><%#= @order_detail.item_id.name %></td>
+                  <td><%#= %></td>
+                  <td>
+                  <%= link_to "表示する", order_path(Order.find(orders.id)) , class:  "btn btn-primary" %></td>
                 </tr>
             <% end %>
           </tbody> 
