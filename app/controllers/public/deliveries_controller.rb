@@ -36,4 +36,6 @@ class Public::DeliveriesController < ApplicationController
     params.require(:delivery).permit(:gip_code, :address, :address_name)
   end
   
+  
+  
 end

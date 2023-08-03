@@ -22,6 +22,7 @@ Rails.application.routes.draw do
  
   scope module: :public do
     root to: "homes#top"
+    get "/about" => "homes#about"
     resources :deliveries,only: [:index, :edit, :create, :update, :destroy]
     resources :orders,only: [:index, :show, :new, :create] do
       collection do
@@ -45,7 +46,7 @@ Rails.application.routes.draw do
     
     get "/customers/information/edit" => "public/customers#edit"
     get "/customers/mypage" => "public/customers#show"
-    get "/about" => "public/homes#about"
+   
   
   end
   
