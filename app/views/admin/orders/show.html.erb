@@ -1,4 +1,51 @@
-        <%= form_with model: @order, url: admin_order_path, method: :patch, local: true do |f| %>
-            <%= f.select :order_status, Order.order_statuses.keys, class: "order_status" %>
-            <%= f.submit "更新" , class: "btn btn-outline-success" %>
+<div class="container">
+  <p id ="notice"></p>
+  
+  <div class="col-sm-3 text-dark bg-light text-center mb-4 ml-5"><h4>注文履歴詳細</h4></div>
+  
+   <div class="row">
+     
+    <div class="col-6 col-sm-4 py-2">購入者</div>
+    <div class="col-6 col-sm-6 py-2"><%= @order.address_name %></div>
+    
+    <div class="w-75"></div>
+    <div class="col-6 col-sm-4 py-2">注文日</div>
+    <div class="col-6 col-sm-6 py-2"><%= @order.created_at%></div>
+    
+    <div class="w-75"></div>
+    <div class="col-6 col-sm-4 py-2">配送先</div>
+    <div class="col-6 col-sm-6 py-2"><%= @order.address %></div>
+  
+    <div class="w-75"></div>
+    <div class="col-6 col-sm-4 py-2">支払方法</div>
+    <div class="col-6 col-sm-6 py-2">
+        <% if @order.payment_methods == 0 %>
+         クレジットカード
+        <% else %>
+         銀行振込
         <% end %>
+    </div>
+  
+    <div class="w-75"></div>
+    <div class="col-6 col-sm-4 py-2">商品合計</div>
+    <div class="col-6 col-sm-6 py-2"><%= @order.invoice_amount %> 円</div>
+    
+    <div class="w-75"></div>
+    <div class="col-6 col-sm-4 py-2">送料</div>
+    <div class="col-6 col-sm-6 py-2"><%= @order.postage %> 円</div>
+    
+    <div class="w-75"></div>
+    <div class="col-6 col-sm-4 py-2">請求金額合計</div>
+    <div class="col-6 col-sm-6 py-2"><%= @order.invoice_amount + (@order.postage) %> 円</div>
+    
+ 
+  
+        </div>
+    </div>  
+    
+  
+  
+  </div>
+    
+  
+</div>
