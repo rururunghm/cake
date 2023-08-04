@@ -65,9 +65,9 @@
           <tbody>
           <% @deliveries.each do |deliveries| %>
             <tr>
-              <td><%= current_customer.deliveries.postal_code %></td>
-              <td><%= current_customer.deliveries.address %></td>
-              <td><%= current_customer.deliveries.address_name %></td>
+              <td><%#= current_customer.deliveries.postal_code %></td>
+              <td><%#= current_customer.deliveries.address %></td>
+              <td><%#= current_customer.deliveries.address_name %></td>
           
               <td>
                 <%= link_to "編集する", edit_delivery_path(deliveries.id),class: "btn btn-sm btn-success" %>
