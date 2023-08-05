@@ -7,7 +7,7 @@
   <div class="row">
         
       <% @items.each do |item| %>
-    <div class="col-sm">
+      <div class="col-sm">
         <%= link_to item_path(item.id) do %>
         <%= image_tag item.image, size: '200x100' %>
         <% end %>
@@ -17,9 +17,7 @@
       <div class="col">
         <%= item.price %>
       </div>
-    </div>  
-        
-        
+  </div>  
       <% end %>  
     
     

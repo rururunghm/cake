@@ -63,15 +63,15 @@
           </thead>
           
           <tbody>
-          <% @deliveries.each do |deliveries| %>
+          <% @deliveries.each do |delivery| %>
             <tr>
-              <td><%#= current_customer.deliveries.postal_code %></td>
-              <td><%#= current_customer.deliveries.address %></td>
-              <td><%#= current_customer.deliveries.address_name %></td>
+              <td><%= delivery.gip_code %></td>
+              <td><%= delivery.address %></td>
+              <td><%= delivery.address_name %></td>
           
               <td>
-                <%= link_to "編集する", edit_delivery_path(deliveries.id),class: "btn btn-sm btn-success" %>
-                <%= link_to "削除する", deliveries_path(deliveries.id), method: :delete, class: "btn btn-sm btn-danger" %>
+                <%= link_to "編集する", edit_delivery_path(delivery.id),class: "btn btn-sm btn-success" %>
+                <%= link_to "削除する", delivery_path(delivery.id), method: :delete, class: "btn btn-sm btn-danger" %>
               </td>
             </tr>
             

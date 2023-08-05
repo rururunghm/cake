@@ -1,7 +1,7 @@
 class Public::DeliveriesController < ApplicationController
   def index
     @delivery = Delivery.new
-    @deliveries = Delivery.all
+    @deliveries = current_customer.deliveries
   end
   
   def create
@@ -27,7 +27,7 @@ class Public::DeliveriesController < ApplicationController
   def destroy
     deliveries = Delivery.find(params[:id])
     deliveries.destroy  
-    redirect_to '/deliveriess' 
+    redirect_to deliveries_path 
   end
   
    private

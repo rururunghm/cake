@@ -6,7 +6,7 @@
     
   <div class="row">
     
-    <%= @order.each do |order| %>
+    <% @order.each do |order| %>
     
     <div class="col-sm-2 mt-3">注文情報</div>
     <div class="col-sm-5"></div>
@@ -66,24 +66,17 @@
               </thead>
     
           <tbody>
-            
-                <tr>
-                  
-                  <td><% order.order_details.each do |order_detail| %>
-                         <%= order_detail.item.name %></br>
-                      <% end %>
-                  </td>
-                  <td><% order.order_details.each do |order_detail| %>
-                         <%= order_detail.item.price %>
-                      <% end %>
-                      </td>
-                  <td><% order.order_details.each do |order_detail| %>
-                         <%= order_detail.amount %>
-                      <% end %></td>
-                  <td><%= order.invoice_amount + order.postage %></td>
-                  
-                </tr>
-           
+                  <% order.order_details.each do |order_detail| %>
+                  <tr>
+                    <td><%= order_detail.item.name %>
+                    </td>
+                    <td>  <%= (order_detail.item.price * 1.1).floor %>
+                    </td>
+                    <td>  <%= order_detail.amount %>
+                    </td>
+                    <td><%= ((order_detail.item.price * 1.1).floor) * order_detail.amount %></td>
+                  </tr>
+                  <% end %>
           </tbody>
    <% end %>
   </div>
