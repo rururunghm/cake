@@ -36,7 +36,13 @@
   
     <div class="w-100"></div>
     <div class="col-6 col-sm-4 bg-light border py-2">会員ステータス</div>
-    <div class="col-6 col-sm-6 border py-2"><%= @customer.is_deleted %></div>
+    <div class="col-6 col-sm-6 border py-2">
+      <% if customer.is_deleted == false %>
+        有効
+      <% else %>
+        退会
+      <% end %>
+    </div>
   
   
   </div>

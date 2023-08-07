@@ -9,6 +9,7 @@ class Public::OrdersController < ApplicationController
   def new
     @cus =  current_customer
     @order = Order.new
+    @o_order = current_customer.deliveries
   end
   
   def confirm

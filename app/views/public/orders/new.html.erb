@@ -31,7 +31,7 @@
           <%= f.radio_button :delivery_method, 1 %>
           <%= f.label :delivery_method, "登録済住所から選択", class: "mt-3" %>
         <div class="col">
-         <%= f.select :select_address, options_from_collection_for_select(Delivery.all, :id, :delivery_display) %>
+         <%= f.select :select_address, options_from_collection_for_select(@o_order, :id, :delivery_display) %>
         </div>
       </div>
       
