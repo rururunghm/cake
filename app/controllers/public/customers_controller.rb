@@ -22,6 +22,7 @@ class Public::CustomersController < ApplicationController
   def secession
     @customer = current_customer
     @customer.update(is_deleted: true)
+    flash[:notice] = "本当に削除してもよろしいですか？"
     reset_session
     redirect_to root_path
   end
